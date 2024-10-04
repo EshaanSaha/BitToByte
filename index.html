@@ -9,14 +9,24 @@
     <script>
         // Function to trigger kaching animation
         function playKaching() {
-            const kachingSound = new Audio('C:\Users\eshaa\OneDrive\Desktop\bit-byte\retro-coin-4-236671.mp3'); // Replace with actual sound file URL
+            const kachingSound = new Audio('retro-coin-4-236671.mp3'); // Ensure the correct relative path
             kachingSound.play();
-            const coinsDiv = document.getElementById('coins');
-            coinsDiv.classList.add('show-coins');
 
+            const coin = document.querySelector('.coin');
+            const logo = document.querySelector('.ribbon img');
+            const logoRect = logo.getBoundingClientRect(); // Get the logo's position
+
+            // Set coin's initial position to the logo's position
+            coin.style.left = `${logoRect.left + logoRect.width / 2}px`;
+            coin.style.top = `${logoRect.top}px`;
+
+            // Trigger coin animation
+            coin.classList.add('show-coin');
+
+            // Remove the class after the animation completes
             setTimeout(() => {
-                coinsDiv.classList.remove('show-coins');
-            }, 1500); // Adjust the duration of the coins animation
+                coin.classList.remove('show-coin');
+            }, 1000); // Adjust the duration as needed
         }
     </script>
 </head>
@@ -81,10 +91,6 @@
 
         <div id="coins" class="coins-animation">
             <img src="coin.png" alt="Coin" class="coin"> <!-- Replace with coin image path -->
-            <img src="coin.png" alt="Coin" class="coin">
-            <img src="coin.png" alt="Coin" class="coin">
-            <img src="coin.png" alt="Coin" class="coin">
-            <img src="coin.png" alt="Coin" class="coin">
         </div>
     </main>
 
