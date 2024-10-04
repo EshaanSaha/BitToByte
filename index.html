@@ -3,99 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SaveSmart: Savings Goal Tracker</title>
+    <title>Savings Goal Tracker</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <script>
-        // Function to trigger kaching animation
-        function playKaching() {
-            const kachingSound = new Audio('retro-coin-4-236671.mp3'); // Ensure the correct relative path
-            kachingSound.play();
-
-            const coin = document.querySelector('.coin');
-            const logo = document.querySelector('.ribbon img');
-            const logoRect = logo.getBoundingClientRect(); // Get the logo's position
-
-            // Set coin's initial position to the logo's position
-            coin.style.left = `${logoRect.left + logoRect.width / 2}px`;
-            coin.style.top = `${logoRect.top}px`;
-
-            // Trigger coin animation
-            coin.classList.add('show-coin');
-
-            // Remove the class after the animation completes
-            setTimeout(() => {
-                coin.classList.remove('show-coin');
-            }, 1000); // Adjust the duration as needed
-        }
-    </script>
 </head>
 <body>
     <header>
-        <div class="header-content">
-            <div class="ribbon" onclick="playKaching()">
-                <img src="logo.png" alt="Company Logo"> <!-- Replace with actual logo path -->
-            </div>
-            <div class="signin">
-                <button onclick="alert('Sign In functionality to be implemented!')">Sign In</button>
-            </div>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#manage-finances">Manage Finances</a></li>
-                <li><a href="#reminders">Reminders</a></li>
-                <li><a href="#plan-expense">Plan an Expense</a></li>
-                <li><a href="#team">Team</a></li>
-            </ul>
-        </nav>
+        <h1>Savings Goal Tracker</h1>
+        <p>Set your financial goals and track your savings progress!</p>
     </header>
-
     <main>
-        <section id="home" class="main-section">
-            <h2>Welcome to SaveSmart!</h2>
-            <p>Your journey to financial security starts here. Set your goals and track your progress!</p>
+        <section id="goal-form">
+            <h2>Set a Savings Goal</h2>
+            <input type="text" id="goalName" placeholder="Goal Name" required>
+            <input type="number" id="goalAmount" placeholder="Goal Amount ($)" required>
+            <input type="number" id="currentSavings" placeholder="Current Savings ($)" required>
+            <button onclick="addGoal()">Add Goal</button>
         </section>
-
-        <section id="manage-finances" class="main-section">
-            <h2>Manage Your Finances</h2>
-            <form id="goal-form">
-                <label for="goal-name">Goal Name:</label>
-                <input type="text" id="goal-name" required>
-                
-                <label for="goal-amount">Total Amount:</label>
-                <input type="number" id="goal-amount" required>
-                
-                <label for="goal-deadline">Deadline:</label>
-                <input type="date" id="goal-deadline" required>
-                
-                <button type="submit">Add Goal</button>
-            </form>
+        <section id="goal-list">
+            <h2>Your Goals</h2>
+            <ul id="goals"></ul>
         </section>
-
-        <section id="reminders" class="main-section">
-            <h2>Monthly Reminders</h2>
-            <p>Stay on track with your savings goals!</p>
-            <button id="set-reminder">Set Reminder</button>
-        </section>
-
-        <section id="plan-expense" class="main-section">
-            <h2>Plan an Expense</h2>
-            <p>Budget wisely and plan for your future expenses!</p>
-        </section>
-
-        <section id="team" class="main-section">
-            <h2>Meet the Team</h2>
-            <p>We are here to support your savings journey!</p>
-        </section>
-
-        <div id="coins" class="coins-animation">
-            <img src="coin.png" alt="Coin" class="coin"> <!-- Replace with coin image path -->
-        </div>
     </main>
-
     <footer>
-        <p>&copy; 2024 SaveSmart. All rights reserved.</p>
+        <p>&copy; 2024 Savings Goal Tracker. All rights reserved.</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
