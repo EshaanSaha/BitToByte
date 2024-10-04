@@ -131,32 +131,21 @@ footer {
 
 /* Coins Animation */
 .coins-animation {
-    position: fixed;
-    bottom: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.coins-animation.show-coins {
-    opacity: 1;
-    animation: jiggle 1s ease forwards;
+    position: absolute;
+    pointer-events: none;
+    left: 0;
+    top: 0;
 }
 
 .coin {
-    width: 30px; /* Adjust size as necessary */
-    margin: 5px;
+    width: 30px;
+    position: absolute;
+    opacity: 0;
+    transform: translateY(0);
+    transition: opacity 0.5s, transform 1s;
 }
 
-@keyframes jiggle {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0);
-    }
+.coin.show-coin {
+    opacity: 1;
+    transform: translateY(100px); /* Moves coin 100px downward */
 }
