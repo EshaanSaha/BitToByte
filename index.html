@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings Goal Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>SaveSmart</h1>
+        <p>Set your financial goals and track your savings progress!</p>
+    </header>
+    <main>
+        <section id="goal-form">
+            <h2>Set a Savings Goal</h2>
+            <input type="text" id="goalName" placeholder="Goal Name" required>
+            <input type="number" id="goalAmount" placeholder="Goal Amount ($)" required>
+            <input type="number" id="currentSavings" placeholder="Current Savings ($)" required>
+            <button onclick="addGoal()">Add Goal</button>
+        </section>
+        <section id="goal-list">
+            <h2>Your Goals</h2>
+            <ul id="goals"></ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; Team MaverHack</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
